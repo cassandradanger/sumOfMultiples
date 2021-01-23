@@ -4,13 +4,25 @@
 //
 
 export const sum = (array, number) => {
-  console.log(array, number);
-  let finalNumer = 0;
+  let numberArray = [];
+  let finalArray = [];
+  let result = [];
 
+  // create an array with all the numbers
   for(let i = 0; i < number; i++){
-    if(i % array[0] == 0 || i % array[1] == 0){
-      finalNumer += i;
-    }
+    numberArray = [...numberArray, i]
   }
-  return finalNumer;
+
+  // loop through the array of multipliers
+  // create an array populated w those divisible with no remainder
+  for (let i = 0; i < array.length; i++ ){
+    result = numberArray.filter(item => item % array[i] == 0);
+    finalArray = [...finalArray, result];
+  }
+
+  // flatten the array of arrays
+  let uniqueChars = [...new Set(finalArray.flat())];
+
+  // return the summation of all numbers in the array
+  return uniqueChars.reduce((a, b) => a + b, 0);
 };
