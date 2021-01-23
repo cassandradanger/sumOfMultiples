@@ -20,7 +20,7 @@ export const sum = (array, number) => {
     finalArray = [...finalArray, result];
   }
 
-  // flatten the array of arrays
+  // flatten the array of arrays and remove duplicates
   let uniqueChars = [...new Set(finalArray.flat())];
 
   // return the summation of all numbers in the array
